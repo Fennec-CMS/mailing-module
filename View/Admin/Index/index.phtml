@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="pull-left">
+            <div class="btn-group">
+                <a href="<?php echo $this->linkToRoute('admin-mailing-register');?>" class="btn btn-success"><i class="fa fa-plus-circle"></i> <?php echo $this->translate('Register new contact');?></a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 50%;">Email</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+<?php
+foreach ($this->list as $contact) {
+?>
+                <tr data-id="<?php echo $contact->getId();?>">
+                    <td><?php echo $contact->getEmail();?></td>
+                    <td><?php echo $contact->getName();?></td>
+                    <td>
+                      <div class="btn-group">
+                        <a href="<?php echo $this->linkToRoute('admin-contact-delete', array('id' => $contact->getId()));?>" class="btn btn-danger btn-delete">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </div>
+                    </td>
+                </tr>
+<?php
+}
+?>
+            </tbody>
+        </table>
+    </div>
+</div>
+

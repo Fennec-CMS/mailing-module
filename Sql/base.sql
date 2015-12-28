@@ -1,0 +1,8 @@
+CREATE TABLE mailingcontacts (
+  email VARCHAR(255) UNIQUE NOT NULL,
+  name VARCHAR(128),
+  date TIMESTAMP DEFAULT NOW(),
+  ip VARCHAR(11) NOT NULL,
+  id SERIAL,
+  PRIMARY KEY(id)
+);
